@@ -16,6 +16,7 @@ $ python server.py
 ```
 
 * Development mode:  
+
 > When running in development mode, scripts & stylesheets will be compiled without being bundled
 
 ```
@@ -25,6 +26,7 @@ $ node bin/www debug
 ```
 
 * Production mode:  
+
 > When running in production mode, scripts & stylesheets will be compiled, minified, bundled and hash-renamed.
 
 ```
