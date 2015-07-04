@@ -48,10 +48,13 @@ gulp.task('watch', function(){
 })
 
 gulp.task('dist', function(){
-	gulp.start('update_all');
+	gulp.start('clean');
 	setTimeout(function(){
-		gulp.start('bundle');
-	}, 3000);
+		gulp.start('update_all');
+		setTimeout(function(){
+			gulp.start('bundle');
+		}, 3000);
+	},2000);
 })
 
 gulp.task('clean', function(){
