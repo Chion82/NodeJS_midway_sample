@@ -1,0 +1,9 @@
+{
+	"request" : {
+		"data" : ""
+	},
+	"response" : {
+		"status" : 200,
+		"post_data" : "MOCK_POST_DATA"
+	}
+}

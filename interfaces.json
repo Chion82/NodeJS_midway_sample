@@ -1,0 +1,34 @@
+{
+    "title": "Sample interfaces",
+    "version": "1.0.0",
+    "engine": "mockjs",
+    "rulebase": "./interface_rules/",
+    "status": "online",
+    "interfaces": [ 
+        {
+            "name": "Get user info",
+            "id": "User.get_info",
+            "urls": {
+                "online": "http://localhost:5000/api/user"
+            }
+        },
+
+        {
+            "name" : "Post test interface",
+            "id" : "User.post_test",
+            "method" : "post",
+            "urls" : {
+                "online" : "http://localhost:5000/api/post"
+            }
+        },
+
+        {
+            "name" : "RESTful API test interface",
+            "id" : "Test.sum",
+            "urls" : {
+                "online" : "http://localhost:5000/api/rest"
+            }
+        }
+
+    ]
+}

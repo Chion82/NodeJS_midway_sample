@@ -1,0 +1,32 @@
+{
+  "name": "node_midway",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.12.4",
+    "bufferhelper": "^0.2.0",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "^4.12.4",
+    "iconv-lite": "^0.4.11",
+    "jade": "~1.9.2",
+    "mockjs": "^0.1.10",
+    "morgan": "~1.5.3",
+    "serve-favicon": "~2.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-if": "^1.2.5",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-html": "^1.0.3",
+    "gulp-rev": "^5.0.1",
+    "gulp-rev-replace": "^0.4.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^1.2.0"
+  }
+}

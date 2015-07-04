@@ -1,0 +1,17 @@
+{
+    "request": {
+    },
+    "response": {
+    	"status":200,
+    	"user_info" : {
+    		"username" : "testuser",
+    		"nickname" : "Test User",
+    		"email" : "test@test.com",
+    		"phone" : "18000000000",
+    		"avatar" : "/images/avatars/default.jpg"
+    	},
+        "cookies" : {
+            "test_cookie" : "MOCK"
+        }
+    }
+}
