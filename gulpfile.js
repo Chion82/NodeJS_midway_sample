@@ -10,8 +10,10 @@ var gulp = require('gulp'),
 	revReplace = require('gulp-rev-replace');
 
 gulp.task('update_dependencies', function(){
-	return gulp.src('./bower_components/**/*.js')
-				.pipe(gulp.dest('./public/scripts/lib'));
+	gulp.src('./bower_components/*/dist/*.js')
+				.pipe(gulp.dest('./public/lib'));
+	return gulp.src('./bower_components/*/*.js')
+				.pipe(gulp.dest('./public/lib'));
 });
 
 gulp.task('update_assets', function(){
@@ -20,15 +22,21 @@ gulp.task('update_assets', function(){
 });
 
 gulp.task('update_source', function(){
-	return gulp.src('./src/**/*')
-				.pipe(gulpif('*.coffee', coffee()))
+	gulp.src('./src/bootstrap/dist/**')
+				.pipe(gulp.dest('./public/bootstrap'))
+	gulp.src('./src/*/*')
+				.pipe(gulpif('*.html', gulp.dest('./views')));
+	gulp.src('./src/*/stylesheets/*')
 				.pipe(gulpif('*.less', less()))
-				.pipe(gulpif('*.jade', gulp.dest('./views'), gulp.dest('./public')));
+				.pipe(gulp.dest('./public'));
+	return gulp.src('./src/*/scripts/*')
+				.pipe(gulpif('*.coffee', coffee()))
+				.pipe(gulp.dest('./public'));
 });
 
 gulp.task('update_all', function(){
 	gulp.start('update_dependencies', 'update_assets', 'update_source');
-})
+});
 
 gulp.task('bundle', function(){
 	var assets = useref.assets({searchPath: './public'});
