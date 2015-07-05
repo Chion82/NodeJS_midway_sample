@@ -4,8 +4,8 @@
 require.config({
     paths:{
         'jquery':'/lib/jquery/dist/jquery.min',
-        'bootstrap':'/bootstrap/js/bootstrap.min',
-        'mymath':'/lib/common/js/mymath'
+        'bootstrap':'/common/scripts/bootstrap.min',
+        'mymath':'/common/scripts/mymath'
     },
     shim:{
         'bootstrap':['jquery']
