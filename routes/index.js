@@ -16,13 +16,19 @@ router.get('/', function(req, res, next) {
 		.done(function(data1, data2, setCookies){
 			if (data1.status == 200 && data2.status == 200) {
 				res.setHeader('Set-Cookie', setCookies);
-				res.render('index', { User: data1.user_info, Cookies: data1.cookies, Post: data2.post_data });
+				res.render('home/index', { User: data1.user_info, Cookies: data1.cookies, Post: data2.post_data });
 			}
 			else
 				res.send('Internal error.' + data1 + data2);
 		});
 });
 
+router.get('/about',function(req,res,next){
+	res.render('home/about',{about:'from swig'});
+});
+router.get('/intro',function(req,res,next){
+	res.render('home/intro');
+});
 /* Proxy of REST API*/
 router.get('/api/sum', function(req, res, next){
 	Test.sum({

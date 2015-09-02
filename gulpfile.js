@@ -7,11 +7,14 @@ var gulp = require('gulp'),
 	minifyCSS = require('gulp-minify-css'),
 	minifyHTML = require('gulp-minify-html'),
 	rev = require('gulp-rev'),
-	revReplace = require('gulp-rev-replace');
+	revReplace = require('gulp-rev-replace')
+	livereload = require('gulp-livereload');
 
 gulp.task('update_dependencies', function(){
-	return gulp.src('./bower_components/**/*.js')
-				.pipe(gulp.dest('./public/scripts/lib'));
+	gulp.src('./bower_components/*/dist/*')
+				.pipe(gulp.dest('./public/lib'));
+	return gulp.src('./bower_components/*/*.js')
+				.pipe(gulp.dest('./public/lib'));
 });
 
 gulp.task('update_assets', function(){
@@ -23,7 +26,8 @@ gulp.task('update_source', function(){
 	return gulp.src('./src/**/*')
 				.pipe(gulpif('*.coffee', coffee()))
 				.pipe(gulpif('*.less', less()))
-				.pipe(gulpif('*.jade', gulp.dest('./views'), gulp.dest('./public')));
+				.pipe(gulpif('*.html', gulp.dest('./views'), gulp.dest('./public')))
+				.pipe(livereload());
 });
 
 gulp.task('update_all', function(){
@@ -44,6 +48,7 @@ gulp.task('bundle', function(){
 });
 
 gulp.task('watch', function(){
+	livereload.listen();
 	gulp.watch(['src/**/*' , 'assets/**/*', 'bower_components/**/*'], ['update_all']);
 })
 

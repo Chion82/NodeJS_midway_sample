@@ -12,13 +12,18 @@ var app = express();
 
 var config = require('./bin/www');
 
-// view engine setup
-if (config.DEBUG)
-  app.set('views', path.join(__dirname, 'views'));
-else
-  app.set('views', path.join(__dirname, 'views', 'dist'));
-app.set('view engine', 'jade');
+swig = require('swig');
 
+// view engine setup
+if (config.DEBUG){
+  app.set('views', path.join(__dirname, 'views'));
+  swig.setDefaults({ cache: false });
+  app.set('view cache', false);
+}else{
+  app.set('views', path.join(__dirname, 'views', 'dist'));
+}
+app.set('view engine', 'html');
+app.engine('html',swig.renderFile);
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
